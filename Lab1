@@ -1,0 +1,192 @@
+public class Lr1 {
+/*Створіть метод, який  приймає два параметри типу String та повертає кількість повних повторів одного слова літерами другого.*/
+
+    int Method(String str1, String str2)
+    {
+        String t2=str2;
+        int a;
+        int res = 0;
+        int length = t2.length();
+
+        while(true){
+            a= str1.length();
+            for(int i = 0,i2 = 0;i2 < length;)
+            {
+                if(str1.charAt(i) == t2.charAt(i2))
+                {
+                    t2 = t2.substring(0,i2) + t2.substring(i2+1);
+                    --length;
+                    i2 = 0;
+                    if(--a == 0) break;
+                    ++i;
+                    continue;
+                }
+                ++i2;
+            }
+            if(a != 0) break;
+            ++res;
+        }
+        return res;
+    }
+
+
+
+    public static void main(String[]args){
+
+        Lr1 s=new Lr1();
+        System.out.println(s.Method("abcabcdddabc","abcdabcddd"));
+
+    }
+import java.util.Arrays;
+
+public class lr2<mas2> {
+    public static void main(String[]args){
+        String [] mas1={"Antonov","Ivanov","Ten"};
+        int [] mas2={18,19,17};
+   boolean sort=false;
+   int a;
+    while(!sort){
+        sort=true;
+        for(int i=0;i<mas2.length-1;i++)
+            if(mas2[i]>mas2[i+1]){
+                sort=false;
+                a=mas2[i];
+                mas2[i]=mas2[i+1];
+                mas2[i+1]=a;
+            }
+        System.out.println(Arrays.toString(mas2));
+    }
+    }
+}
+//Створіть метод, який  приймає два параметри типу String
+// та повертає кількість повних повторів одного слова літерами другого.
+
+    int Method18(String str1, String str2)
+    {
+        String tmp2=str2;//задля уникнення працювання безпосередньо з переданим параметром переданим
+        int numOfReplacing;//локальна допоміжна змінна
+        int result = 0;
+        int length = tmp2.length();//довжина 2 рядка
+
+        while(true){//поки немає примусового виходу із циклу
+            numOfReplacing = str1.length();//у змінну записуємо довжину 1 рядка
+            for(int i = 0,i2 = 0;i2 < length;)//поки не дійдемо кінця 2 рядка
+            {
+                if(str1.charAt(i) == tmp2.charAt(i2))//перевірка на рівність букв 1 та 2 рядка
+                {
+                    tmp2 = tmp2.substring(0,i2) + tmp2.substring(i2+1);//у рядок записуємо значення
+                    --length;//зменшуємо к-сть букв
+                    i2 = 0;//обнуляємо i2
+                    if(--numOfReplacing == 0) break;//якщо рядок 1 закінчився-виходимо із циклу
+                    ++i;//збільшуємо i
+                    continue;//на початок циклу
+                }
+                ++i2;//збільшуємо i2, якщо збігів букв немає
+            }
+            if(numOfReplacing != 0) break;//якщо в 1 рядку не закінчилися букви
+            ++result;//підрахунок
+        }
+        return result;
+    }
+        public static void main(String[] args){
+        boolean a1=  false && false ;
+        boolean a2 = false && true;
+        boolean a3 = true && false;
+        boolean a4 = true&&19/0<2;
+
+        boolean b1 =  true || 5/0>9;
+        boolean b2 = false || true;
+        boolean b3 =  true || false;
+        boolean b4 =  false|| false;
+
+        boolean c1= false&false;
+        boolean c2= false&true;
+        boolean c3= true&false;
+        boolean c4 =true&true;
+
+
+        System.out.println(" &&  "+a1);
+        System.out.println(" &&  "+a2);
+        System.out.println(" &&  "+a3);
+        System.out.println(" &&  "+a4);
+        System.out.println(b1);
+        System.out.println(b2);
+        System.out.println(b3);
+        System.out.println(b4);
+        System.out.println(" &  "+c1);
+        System.out.println(" &  "+c2);
+        System.out.println(" &  "+c3);
+        System.out.println(" &  "+c4);
+
+
+    }
+
+
+}
+/*
+Створіть метод, який дозволяє порівняти 2 будь яких масиви int[] за складом.
+Масиви можуть відрізнятися по порядку елементів, але бути однаковими зі складу.
+Приклад: [1,4,7]==[4,7,1- еквівалентні]
+ */
+
+    public  boolean ArraysComparer(int[] array1,int[] array2)
+    {
+        int length= array1.length;
+        if (length != array2.length) return false;
+        Arrays.sort(array1);
+        Arrays.sort(array2);
+
+        for(int ind=0;ind<length;++ind)
+            if (array1[ind]!=array2[ind])
+                return false;
+        return true;
+
+    }
+
+
+    /* Створіть метод, який рекурсивно рахує суму елементів масиву int[] , який передається як параметр методу.*/
+
+    public int sumRec(int[] arr, int ind){
+        if (ind == arr.length) {
+            return 0;
+        }
+        else {
+            return (sumRec(arr, ind + 1)+arr[ind]);
+        }
+    }
+
+
+    public static void main(String[] args){
+
+        /*Створіть метод, який сортує масив String */
+        String [] names = {"safcgsdali","friugpfu","sdhcswxl","skdcd","ty","wqspxqjpoijsfc","f"};
+        Arrays.sort(names);
+
+        for(int i=0;i<names.length;i++) {
+
+            if(names[i].length()>names[i+1].length()) {
+                String str = names[i];
+                names[i] = names[i + 1];
+
+            }
+
+            for(String s: names){
+                System.out.println(s);
+            }
+
+        }
+
+    }
+
+
+}
+    /* Створіть метод, який рекурсивно рахує суму елементів масиву int[] , який передається як параметр методу.*/
+
+    public int sumRec(int[] arr, int ind){
+        if (ind == arr.length) {
+            return 0;
+        }
+        else {
+            return (sumRec(arr, ind + 1)+arr[ind]);
+        }
+    }
